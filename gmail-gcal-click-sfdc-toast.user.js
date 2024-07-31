@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name        Gmail and Gcal SFDC toast click
-// @description Click on the SFDC disconnected toast as it adds no value
+// @description Wait for the SFDC 'network is disconnected toast' and click on it as it adds no value
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
 // @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/gmail-gcal-click-sfdc-toast.user.js
-// @match   	*://mail.google.com/*
-// @match   	*://calendar.google.com/*
-// @require 	https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
+// @match   	  *://mail.google.com/*
+// @match   	  *://calendar.google.com/*
+// @require 	  https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
 VM.observe(document.body, () => {
@@ -20,12 +20,11 @@ VM.observe(document.body, () => {
   }
 
   if (window.location.hostname.includes('mail')) {
- //   const n = window.location.hostname.includes('mail')
- //   if (n) {
- //     n.style.display = 'none';
-  //  }
+    const n = document.querySelector(".sfdc-mailapp-toast-message-container > div > div");
+    if (n) {
+      n.click();
+    }
   }
 
   return false;
 });
-
