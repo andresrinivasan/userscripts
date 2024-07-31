@@ -5,9 +5,10 @@
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
-// @match   *://mail.google.com/*
-// @match   *://calendar.google.com/*
-// @require https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
+// @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/gmail-gcal-click-sfdc-toast.user.js
+// @match   	*://mail.google.com/*
+// @match   	*://calendar.google.com/*
+// @require 	https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
 VM.observe(document.body, () => {
@@ -27,3 +28,4 @@ VM.observe(document.body, () => {
 
   return false;
 });
+

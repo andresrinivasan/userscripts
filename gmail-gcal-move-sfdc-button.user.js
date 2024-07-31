@@ -5,6 +5,7 @@
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
+// @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/gmail-gcal-move-sfdc-button.user.js
 // @match       *://mail.google.com/*
 // @match       *://calendar.google.com/*
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
@@ -41,3 +42,4 @@ VM.observe(document.body, () => {
 
   return false;
 });
+
