@@ -1,8 +1,13 @@
 // ==UserScript==
-// @name     Hide SFDC button in Gmail and Gcal
-// @match   *://mail.google.com/*
-// @match   *://calendar.google.com/*
-// @require https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
+// @name        Gmail and Gcal SFDC move button
+// @description Move the SFDC button so it doesn't consume so much space
+// @license     The Unlicense
+// @author      André Srinivasan
+// @website     https://github.com/andresrinivasan/userscripts
+// @supportURL  https://github.com/andresrinivasan/userscripts/issues
+// @match       *://mail.google.com/*
+// @match       *://calendar.google.com/*
+// @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
 let mailInited = false;
