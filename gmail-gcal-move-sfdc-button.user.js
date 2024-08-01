@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name        Gmail and Gcal SFDC move button
 // @description Move the SFDC button so it doesn't consume so much space
+// @version     0.0.2
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts

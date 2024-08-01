@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Gmail and Gcal SFDC toast click
 // @description Wait for the SFDC 'network is disconnected toast' and click on it as it adds no value
-// @version     0.0.1
+// @version     0.0.2
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
