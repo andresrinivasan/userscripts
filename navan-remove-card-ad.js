@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name        Remove Navan Card Ad
 // @description Don't show Navan ads for their card
-// @version     0.0.1
+// @version     0.0.2
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
 // @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/navan-remove-card-ad.js
-// @match       *://app.navan.com/app/liquid/user/transactions/*
+// @match       *://app.navan.com/*
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
