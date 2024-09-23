@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Remove Navan Card Ad
 // @description Don't show Navan ads for their card
-// @version     0.0.2
+// @version     0.0.3
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -12,13 +12,13 @@
 // ==/UserScript==
 
 VM.observe(document.body, () => {
-    const o1 = document.querySelector(".order-card-cta-left-container");
-    if (o1) {
+    const n1 = document.querySelector(".order-card-cta-left-container");
+    if (n1) {
       document.querySelector(".secondary").click()
     }
   
-    const o2 = document.querySelector(".order-card-cta-container[_ngcontent-ng-c3120622055]");
-    if (o2.style.display != "none") {
-      o2.style.display = "none";
+    const n2 = document.querySelector(".order-card-cta-container[_ngcontent-ng-c3120622055]");
+    if (n2.style.display != "none") {
+      n2.style.setProperty("display", "none", "important")
     }
 });
