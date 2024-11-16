@@ -24,7 +24,7 @@ VM.observe(document.body, () => {
 
     // Added when Order Card CTA came back. Not sure if the one above is still needed
     const n3 = document.querySelector("user-order-new-card-tile.ng-star-inserted");
-    if (n2.style.display != "none") {
-      n2.style.setProperty("display", "none", "important")
+    if (n3.style.display != "none") {
+      n3.style.setProperty("display", "none", "important")
     }
 });
