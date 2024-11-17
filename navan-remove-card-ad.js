@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Remove Navan Card Ads
 // @description Don't show Navan ads for their card
-// @version     0.0.7
+// @version     0.0.8
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -19,7 +19,10 @@ VM.observe(document.body, () => {
     }
   
     // Remove Navan Card CTA on the right nav
-    const containerCSSPath = [".order-card-cta-container[_ngcontent-ng-c3120622055]", ".order-card-cta-container[_ngcontent-ng-c3120622055]"];
+    const containerCSSPath = [
+      ".order-card-cta-container[_ngcontent-ng-c3120622055]", 
+      "user-order-new-card-tile.ng-star-inserted",
+    ];
     for (const path of containerCSSPath) {
       const n2 = document.querySelector(path);
       if (n2 != null && n2.style.display != "none") {
