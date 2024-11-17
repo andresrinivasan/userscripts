@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name        Remove Navan Card Ad
+// @name        Remove Navan Card Ads
 // @description Don't show Navan ads for their card
-// @version     0.0.6
+// @version     0.0.7
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -12,19 +12,18 @@
 // ==/UserScript==
 
 VM.observe(document.body, () => {
+    // Remove Navan Card CTA across the top of the page
     const n1 = document.querySelector(".order-card-cta-left-container");
     if (n1) {
       document.querySelector(".secondary").click()
     }
   
-    const n2 = document.querySelector(".order-card-cta-container[_ngcontent-ng-c3120622055]");
-    if (n2 != null && n2.style.display != "none") {
-      n2.style.setProperty("display", "none", "important")
-    }
-
-    // Added when Order Card CTA came back. Not sure if the one above is still needed
-    const n3 = document.querySelector("user-order-new-card-tile.ng-star-inserted");
-    if (n3 != null && n3.style.display != "none") {
-      n3.style.setProperty("display", "none", "important")
+    // Remove Navan Card CTA on the right nav
+    const containerCSSPath = [".order-card-cta-container[_ngcontent-ng-c3120622055]", ".order-card-cta-container[_ngcontent-ng-c3120622055]"];
+    for (const path of containerCSSPath) {
+      const n2 = document.querySelector(path);
+      if (n2 != null && n2.style.display != "none") {
+        n2.style.setProperty("display", "none", "important")
+      }
     }
 });
