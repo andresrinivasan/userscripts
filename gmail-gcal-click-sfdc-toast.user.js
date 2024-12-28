@@ -12,6 +12,8 @@
 // @require 	  https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
+"use strict";
+
 VM.observe(document.body, () => {
   if (window.location.hostname.includes('calendar')) {
     const n = document.querySelector("#sfdc-mailapp-toast-button > img");

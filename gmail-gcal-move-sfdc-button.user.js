@@ -12,6 +12,8 @@
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
+"use strict";
+
 let mailInited = false;
 let calendarInited = false
 

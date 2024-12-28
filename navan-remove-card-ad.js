@@ -11,6 +11,8 @@
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
+"use strict";
+
 // Need to use VM.observe to wait for the CTA to show up
 
 VM.observe(document.body, () => {
