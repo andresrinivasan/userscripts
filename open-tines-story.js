@@ -13,7 +13,7 @@
 // @grant       GM_openInTab
 // ==/UserScript==
 
-"use strict";
+'use strict';
 
 VM.observe(document.body, () => {
   let observed = false;

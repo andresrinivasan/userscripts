@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Gmail and Gcal SFDC toast click
 // @description Wait for the SFDC 'network is disconnected toast' and click on it as it adds no value
-// @version     0.0.2
+// @version     1.0.0
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -12,7 +12,7 @@
 // @require 	  https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
-"use strict";
+'use strict';
 
 VM.observe(document.body, () => {
   if (window.location.hostname.includes('calendar')) {

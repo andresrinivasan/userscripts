@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Remove Navan Card Ads
 // @description Don't show Navan ads for their card
-// @version     0.0.9
+// @version     1.0.1
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -11,7 +11,7 @@
 // @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // ==/UserScript==
 
-"use strict";
+'use strict';
 
 // Need to use VM.observe to wait for the CTA to show up
 
