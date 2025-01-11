@@ -16,13 +16,10 @@
 // Need to use VM.observe to wait for the CTA to show up
 
 VM.observe(document.body, () => {
-  let done = false;
-
   // Remove Navan Card CTA across the top of the page
   const n1 = document.querySelector(".order-card-cta-left-container");
   if (n1) {
     document.querySelector(".secondary").click();
-    done = true;
   }
 
   // Remove Navan Card CTA on the right nav
@@ -37,5 +34,6 @@ VM.observe(document.body, () => {
     }
   }
 
-  return done;
+  // CTAs can come back
+  return false;
 });
