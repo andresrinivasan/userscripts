@@ -2,7 +2,7 @@
 // @name        Open Tines Story
 // @namespace   https://github.com/andresrinivasan/userscripts
 // @description Open the Tines Story in the library tenant from tines.com/library when the Import button is alt+clicked.
-// @version     1.0.1
+// @version     1.0.2
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -19,7 +19,7 @@ VM.observe(document.body, () => {
   let observed = false;
 
   if (location.pathname.startsWith("/library/stories")) {
-    const b = document.querySelector('a.Button.byd02ej.fullWidth');
+    const b = document.querySelector('.l1dpxm3m') // Use div around button to avoid event added by Tines
     if (b) {
       b.addEventListener('click', (event) => {
         if (event.altKey) {
