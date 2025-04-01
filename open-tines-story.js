@@ -2,7 +2,7 @@
 // @name        Open Tines Story
 // @namespace   https://github.com/andresrinivasan/userscripts
 // @description Open the Tines Story in the library tenant from tines.com/library when the Import button is alt+clicked.
-// @version     1.0.3
+// @version     1.0.4
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -22,7 +22,7 @@ VM.observe(document.body, () => {
     const b = document.querySelector('.l1dpxm3m') // Use div around button to avoid event added by Tines
     if (b) {
       b.addEventListener('click', catchClick, false);
-      observed = true;
+      // observed = true; // I can't run this once as some Tines logic is overwriting my listener. XXX fix me
     }
   }
 
