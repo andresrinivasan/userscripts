@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Remove Navan Card Ads
 // @description Don't show Navan ads for their card
-// @version     1.0.1
+// @version     1.0.2
 // @license     The Unlicense
 // @author      André Srinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -31,6 +31,15 @@ VM.observe(document.body, () => {
     const n2 = document.querySelector(path);
     if (n2 != null && n2.style.display != "none") {
       n2.style.setProperty("display", "none", "important");
+    }
+  }
+
+  // 20250408 Remove Navan Card CTA across the top
+  const n3 = document.querySelector(".banner-minimal__container");
+  if (n3) {
+    const n4 = n3.querySelector(".icon-cross-filled");
+    if (n4) {
+      n4.click()
     }
   }
 
