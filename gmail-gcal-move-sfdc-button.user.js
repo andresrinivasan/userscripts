@@ -3,7 +3,7 @@
 // @description Move the SFDC button so it doesn't consume so much space
 // @version     0.0.2
 // @license     The Unlicense
-// @author      André Srinivasan
+// @author      andresrinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
 // @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/gmail-gcal-move-sfdc-button.user.js
@@ -15,7 +15,7 @@
 'use strict';
 
 let mailInited = false;
-let calendarInited = false
+let calendarInited = false;
 
 function openCloseSFDC() {
     let b = document.querySelector("#sfdc-mailapp-container > everywhere-toolbar").shadowRoot.querySelector("div > div > everywhere-tool").shadowRoot.querySelector("div > button");

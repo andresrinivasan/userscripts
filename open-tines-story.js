@@ -4,7 +4,7 @@
 // @description Open the Tines Story in the library tenant from tines.com/library when the Import button is alt+clicked.
 // @version     1.0.4
 // @license     The Unlicense
-// @author      André Srinivasan
+// @author      andresrinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
 // @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/open-tines-story.js

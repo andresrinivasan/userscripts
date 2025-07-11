@@ -3,7 +3,7 @@
 // @description Wait for the SFDC 'network is disconnected toast' and click on it as it adds no value
 // @version     1.0.0
 // @license     The Unlicense
-// @author      André Srinivasan
+// @author      andresrinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
 // @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/gmail-gcal-click-sfdc-toast.user.js

@@ -3,7 +3,7 @@
 // @description Don't show Navan ads for their card
 // @version     1.0.2
 // @license     The Unlicense
-// @author      André Srinivasan
+// @author      andresrinivasan
 // @website     https://github.com/andresrinivasan/userscripts
 // @supportURL  https://github.com/andresrinivasan/userscripts/issues
 // @downloadURL	https://github.com/andresrinivasan/userscripts/raw/main/navan-remove-card-ad.js
