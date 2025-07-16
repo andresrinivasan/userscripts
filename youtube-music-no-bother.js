@@ -67,9 +67,9 @@
             document.getElementsByClassName('yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment')[0].click()
         } catch {}
     }, 1000);
-  setInterval(() => {
+    setInterval(() => {
         try {
-          document.getElementsByClassName('yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment')[0].click()
+            document.querySelector("body > ytmusic-app > ytmusic-popup-container > tp-yt-paper-dialog > ytmusic-mealbar-promo-renderer > div.button-wrapper.style-scope.ytmusic-mealbar-promo-renderer > yt-button-renderer.dismiss-button.style-scope.ytmusic-mealbar-promo-renderer > yt-button-shape > button").click();
         } catch {}
     }, 1000);
 })();
