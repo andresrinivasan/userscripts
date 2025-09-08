@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Youtube Music I'm still here listening
-// @version      1.0.1
+// @version      1.1.0
 // @description  Forked from https://github.com/kkrow/youtube-music-no-bother. Clicks on the annoying button for you and trying to fake page focus so this message won't appear at all
-// @author       kkrow
 // @author       andresrinivasan
+// @author       kkrow
 // @license      MIT
 // @match        https://music.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=music.youtube.com
@@ -33,15 +33,21 @@
     window.hasFocus = () => true;
     document.hasFocus = () => true;
 
+    // If tab lose focus turn focus back immediately
+    window.addEventListener('blur', () => {
+        window.focus();
+    });
+
     // Block registry of tracking listeners
-    const origDocumentAddEventListener = document.addEventListener;
-    document.addEventListener = function(type, listener, options) {
-        if (type === 'visibilitychange' || type === "blur" || type === "focus") {
-            // console.log("rejected attempt of adding new document listener: " + type)
-            return;
-        }
-        return origDocumentAddEventListener.call(this, type, listener, options);
-    };
+// This may not be needed as the window events are being blocked so they won't bubble up
+//    const origDocumentAddEventListener = document.addEventListener;
+//    document.addEventListener = function(type, listener, options) {
+//        if (type === 'visibilitychange' || type === "blur" || type === "focus") {
+//            // console.log("rejected attempt of adding new document listener: " + type)
+//            return;
+//        }
+//        return origDocumentAddEventListener.call(this, type, listener, options);
+//    };
     const origWindowAddEventListener = document.addEventListener;
     window.addEventListener = function(type, listener, options) {
         if (type === 'visibilitychange' || type === "blur" || type === "focus") {
@@ -52,9 +58,10 @@
     };
 
     // If tab lose focus turn focus back immediately
-    window.addEventListener('blur', () => {
-        window.focus();
-    });
+// Moved earlier
+//    window.addEventListener('blur', () => {
+//        window.focus();
+//    });
 
     // Click these button as soon as they appear
     setInterval(() => {
