@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Youtube Music I'm still here listening
 // @version      1.1.0
-// @description  Forked from https://github.com/kkrow/youtube-music-no-bother. Clicks on the annoying button for you and trying to fake page focus so this message won't appear at all
+// @description  Forked from https://greasyfork.org/en/scripts/535841-youtube-music-i-m-still-here-listening. Clicks on the annoying button for you and trying to fake page focus so this message won't appear at all
 // @author       andresrinivasan
 // @author       kkrow
 // @license      MIT
