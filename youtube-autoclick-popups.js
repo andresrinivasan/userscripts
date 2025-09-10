@@ -15,6 +15,9 @@
 
 // Need to use VM.observe to wait for the popups to show up
 
+// NOTE
+// I was experimenting. This is not sufficient as it won't run if the tab isn't in the foreground. 
+
 VM.observe(document.body, () => {
   const upgrade = document.querySelector("body > ytmusic-app > ytmusic-popup-container > tp-yt-paper-dialog > ytmusic-mealbar-promo-renderer > div.button-wrapper.style-scope.ytmusic-mealbar-promo-renderer > yt-button-renderer.dismiss-button.style-scope.ytmusic-mealbar-promo-renderer > yt-button-shape");
   if (upgrade) {
