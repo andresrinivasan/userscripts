@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Remove Navan Card Ads
 // @description Don't show Navan ads for their card
-// @version     1.0.2
+// @version     1.1.0
 // @license     The Unlicense
 // @author      andresrinivasan
 // @website     https://github.com/andresrinivasan/userscripts
@@ -29,8 +29,8 @@ VM.observe(document.body, () => {
   ];
   for (const path of containerCSSPath) {
     const n2 = document.querySelector(path);
-    if (n2 != null && n2.style.display != "none") {
-      n2.style.setProperty("display", "none", "important");
+    if (n2 != null) {
+      n2.remove();
     }
   }
 
