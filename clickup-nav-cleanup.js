@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Clickup Nav Cleanup
-// @version      1.0.1
+// @version      1.0.2
 // @description  Remove parts of the nav bar that I don't care about
 // @author       andresrinivasan
 // @license      Unlicense
@@ -21,7 +21,10 @@ VM.observe(document.body, () => {
 
     for (const s of selectors) {
         try {
-            document.querySelector(s).remove();
+            let e = document.querySelector(s);
+            if (e) {
+                e.remove();
+            }
         } catch (e) {
             return false;
         }
