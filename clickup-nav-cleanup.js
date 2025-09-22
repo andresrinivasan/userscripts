@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Clickup Nav Cleanup
-// @version      1.0.2
+// @version      1.0.3
 // @description  Remove parts of the nav bar that I don't care about
 // @author       andresrinivasan
 // @license      Unlicense
@@ -13,10 +13,10 @@
 
 VM.observe(document.body, () => {
     const selectors = [
-        "#app-root > cu-app-view-deferred > cu-app-view > cu-app-shell > cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > div:nth-child(3)",
-        "#app-root > cu-app-view-deferred > cu-app-view > cu-app-shell > cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > div.ng-tns-c2032951352-6.cu-simple-bar__item-container.cu-simple-bar__item-container_home.ng-star-inserted",
-        "#app-root > cu-app-view-deferred > cu-app-view > cu-app-shell > cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > div.ng-tns-c2032951352-6.cu-simple-bar__item-container.ng-star-inserted",
-        "#app-root > cu-app-view-deferred > cu-app-view > cu-app-shell > cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > cu-sidebar-favorites"
+        "cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > div:nth-child(3)",
+        "cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > div.ng-tns-c2032951352-6.cu-simple-bar__item-container.cu-simple-bar__item-container_home.ng-star-inserted",
+        "cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > div.ng-tns-c2032951352-6.cu-simple-bar__item-container.ng-star-inserted",
+        "cu-manager > div.cu-manager2__container.ng-tns-c2866496296-4.ng-star-inserted.cu-manager2__container_v3.layout-size_compact > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2032951352-6.cu-simple-bar__body > cu-sidebar-favorites"
     ];
 
     for (const s of selectors) {
@@ -32,3 +32,5 @@ VM.observe(document.body, () => {
 
     return true;
 });
+
+#app-root > cu-app-view-deferred > cu-app-view > cu-app-shell > cu-manager > div > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2661551833-5.cu-simple-bar__body > div.ng-tns-c2661551833-5.cu-simple-bar__item-container.cu-simple-bar__item-container_home.ng-star-inserted
