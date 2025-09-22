@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Clickup Nav Cleanup
-// @version      1.0.3
+// @version      1.0.4
 // @description  Remove parts of the nav bar that I don't care about
 // @author       andresrinivasan
 // @license      Unlicense
