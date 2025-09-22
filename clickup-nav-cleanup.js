@@ -32,5 +32,3 @@ VM.observe(document.body, () => {
 
     return true;
 });
-
-#app-root > cu-app-view-deferred > cu-app-view > cu-app-shell > cu-manager > div > div > div > cu-simple-bar > div > div > div.cdk-virtual-scrollable.ng-tns-c2661551833-5.cu-simple-bar__body > div.ng-tns-c2661551833-5.cu-simple-bar__item-container.cu-simple-bar__item-container_home.ng-star-inserted
