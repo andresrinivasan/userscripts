@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube Music I'm still here listening
-// @version      1.1.0
+// @version      2.0.0
 // @description  Forked from https://greasyfork.org/en/scripts/535841-youtube-music-i-m-still-here-listening. Clicks on the annoying button for you and trying to fake page focus so this message won't appear at all
 // @author       andresrinivasan
 // @author       kkrow
@@ -10,11 +10,13 @@
 // @grant        none
 // @run-at       document-start
 // @downloadURL  https://github.com/andresrinivasan/userscripts/raw/main/youtube-music-no-bother.js
+// @require      https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @supportURL   https://github.com/andresrinivasan/userscripts/issues
 // ==/UserScript==
 
 (function() {
     'use strict';
+    
     // Util to redefine getters
     function defineGetter(obj, prop, value) {
         Object.defineProperty(obj, prop, {
@@ -33,50 +35,31 @@
     window.hasFocus = () => true;
     document.hasFocus = () => true;
 
-    // If tab lose focus turn focus back immediately
-    window.addEventListener('blur', () => {
-        window.focus();
-    });
-
-    // Block registry of tracking listeners
-// This may not be needed as the window events are being blocked so they won't bubble up
-//    const origDocumentAddEventListener = document.addEventListener;
-//    document.addEventListener = function(type, listener, options) {
-//        if (type === 'visibilitychange' || type === "blur" || type === "focus") {
-//            // console.log("rejected attempt of adding new document listener: " + type)
-//            return;
-//        }
-//        return origDocumentAddEventListener.call(this, type, listener, options);
-//    };
-    const origWindowAddEventListener = document.addEventListener;
+    // Block YouTube from adding new listeners for visibility or focus changes.
+    const origWindowAddEventListener = window.addEventListener;
     window.addEventListener = function(type, listener, options) {
         if (type === 'visibilitychange' || type === "blur" || type === "focus") {
-            // console.log("rejected attempt of adding new window listener: " + type)
+            // console.log(`Blocked window.addEventListener for type: ${type}`);
             return;
         }
-        return origWindowAddEventListener.call(this, type, listener, options);
+        return origWindowAddEventListener.apply(this, arguments);
     };
 
-    // If tab lose focus turn focus back immediately
-// Moved earlier
-//    window.addEventListener('blur', () => {
-//        window.focus();
-//    });
+    // Click popup buttons as soon as they appear.
+    VM.observe(document.body, () => {
+        // "Are you still listening?" - Yes button
+        const stillHereBtn = document.querySelector('ytmusic-you-there-renderer .yt-spec-button-shape-next--call-to-action, ytmusic-you-there-renderer yt-button-renderer button');
+        if (stillHereBtn) {
+            stillHereBtn.click();
+        }
 
-    // Click these button as soon as they appear
-    setInterval(() => {
-        try {
-            document.getElementsByClassName('yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--call-to-action-inverse yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment')[0].click()
-        } catch {}
-    }, 1000);
-    setInterval(() => {
-        try {
-            document.getElementsByClassName('yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment')[0].click()
-        } catch {}
-    }, 1000);
-    setInterval(() => {
-        try {
-            document.querySelector("body > ytmusic-app > ytmusic-popup-container > tp-yt-paper-dialog > ytmusic-mealbar-promo-renderer > div.button-wrapper.style-scope.ytmusic-mealbar-promo-renderer > yt-button-renderer.dismiss-button.style-scope.ytmusic-mealbar-promo-renderer > yt-button-shape > button").click();
-        } catch {}
-    }, 1000);
+        // "Upgrade" or other promos - Dismiss button
+        const promoDismissBtn = document.querySelector('ytmusic-mealbar-promo-renderer .dismiss-button, .yt-spec-button-shape-next--call-to-action-inverse');
+        if (promoDismissBtn) {
+            promoDismissBtn.click();
+        }
+
+        // Popups can come back, so we keep observing.
+        return false;
+    });
 })();
