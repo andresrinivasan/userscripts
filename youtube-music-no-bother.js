@@ -9,6 +9,7 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=music.youtube.com
 // @grant        none
 // @run-at       document-end
+// @homepageURL  https://github.com/andresrinivasan/userscripts
 // @downloadURL  https://github.com/andresrinivasan/userscripts/raw/main/youtube-music-no-bother.js
 // @require      https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @supportURL   https://github.com/andresrinivasan/userscripts/issues
