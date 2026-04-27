@@ -22,10 +22,26 @@
         promoDismiss: 'ytmusic-mealbar-promo-renderer .dismiss-button, .yt-spec-button-shape-next--call-to-action-inverse'
     };
 
+    // Whitelist of focusable elements/selectors where the script should never attempt clicks
+    // Add page-specific selectors here if the script interferes with typing.
+    const FOCUS_WHITELIST = [
+        'ytmusic-search-box input',            // common YouTube Music search box wrapper
+        'input[aria-label="Search"]',        // generic aria-labeled search inputs
+        'tp-yt-paper-input input',             // yt/custom input wrappers
+        'input#search',                        // generic search id
+        'input#input'                          // some wrappers use this id
+    ];
+
     function isTypingInEditable() {
         try {
             const ae = document.activeElement;
             if (!ae) return false;
+
+            // If the focused element itself matches a whitelist selector, skip
+            for (const s of FOCUS_WHITELIST) {
+                if (ae.closest && ae.closest(s)) return true;
+            }
+
             const tag = (ae.tagName || '').toUpperCase();
             if (tag === 'INPUT' || tag === 'TEXTAREA') return true;
             if (ae.isContentEditable) return true;
