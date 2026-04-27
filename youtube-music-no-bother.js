@@ -11,7 +11,6 @@
 // @match        https://music.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=music.youtube.com
 // @grant        none
-// @run-at       document-start
 // @run-at       document-end
 // @downloadURL  https://github.com/andresrinivasan/userscripts/raw/main/youtube-music-no-bother.js
 // @require      https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
