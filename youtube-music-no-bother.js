@@ -22,7 +22,33 @@
         promoDismiss: 'ytmusic-mealbar-promo-renderer .dismiss-button, .yt-spec-button-shape-next--call-to-action-inverse'
     };
 
+    function isTypingInEditable() {
+        try {
+            const ae = document.activeElement;
+            if (!ae) return false;
+            const tag = (ae.tagName || '').toUpperCase();
+            if (tag === 'INPUT' || tag === 'TEXTAREA') return true;
+            if (ae.isContentEditable) return true;
+
+            // Walk up ancestors looking for a search role or search-related class
+            let el = ae;
+            while (el && el !== document.documentElement) {
+                const role = el.getAttribute && el.getAttribute('role');
+                if (role === 'search') return true;
+                const cls = el.className || '';
+                if (typeof cls === 'string' && /search|query|autocomplete|suggest/i.test(cls)) return true;
+                el = el.parentElement;
+            }
+        } catch (err) {
+            // ignore
+        }
+        return false;
+    }
+
     function clickButtons() {
+        // Don't interact while the user is typing in a form/search box
+        if (isTypingInEditable()) return false;
+
         try {
             const stillHereBtn = document.querySelector(SELECTORS.stillHere);
             if (stillHereBtn) {
