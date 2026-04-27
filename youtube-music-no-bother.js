@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube Music - No Bother
-// @version      4.0.0
+// @version      4.0.1
 // @description  Forked from https://greasyfork.org/en/scripts/535841-youtube-music-i-m-still-here-listening. Automatically clicks "Are you still listening?" and dismisses upgrade/promo popups on YouTube Music.
 // @author       andresrinivasan
 // @author       kkrow
@@ -19,9 +19,24 @@
     'use strict';
 
     const SELECTORS = {
-        stillHere: 'ytmusic-you-there-renderer .yt-spec-button-shape-next--call-to-action, ytmusic-you-there-renderer yt-button-renderer button',
         promoDismiss: 'ytmusic-mealbar-promo-renderer .dismiss-button, .yt-spec-button-shape-next--call-to-action-inverse'
     };
+
+    function findStillHereButton() {
+        // Try the exact popup path first (reported selector)
+        const exact = document.querySelector('body > ytmusic-app > ytmusic-popup-container > tp-yt-paper-dialog > ytmusic-you-there-renderer > div > yt-button-renderer > yt-button-shape > button');
+        if (exact) return exact;
+
+        // Fallback: look inside the renderer for likely buttons
+        const root = document.querySelector('ytmusic-you-there-renderer');
+        if (!root) return null;
+        const candidates = Array.from(root.querySelectorAll('button, yt-button-renderer button, yt-button-shape > button'));
+        return candidates.find(b => {
+            const txt = (b.textContent || '').trim().toLowerCase();
+            const aria = (b.getAttribute && (b.getAttribute('aria-label') || '')).toLowerCase();
+            return /yes|still here|keep playing|continue|play/i.test(txt) || /yes|still here|keep playing|continue|play/i.test(aria);
+        }) || candidates[0] || null;
+    }
 
     // Whitelist of focusable elements/selectors where the script should never attempt clicks
     // Add page-specific selectors here if the script interferes with typing.
@@ -67,7 +82,7 @@
         if (isTypingInEditable()) return false;
 
         try {
-            const stillHereBtn = document.querySelector(SELECTORS.stillHere);
+            const stillHereBtn = findStillHereButton();
             if (stillHereBtn) {
                 stillHereBtn.click();
                 return true;
