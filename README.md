@@ -51,10 +51,4 @@ Repository notes / conventions
 - Use VM.observe(document.body, ...) for dynamic sites and keep selectors focused; many scripts intentionally use brittle selectors.
 - If adding a build step or tests, update this README with exact build/test/lint commands and how to run a single-script test.
 
-Contributing
-- Open issues or PRs against this repository. For script changes, update the metadata @version and @downloadURL if you intend users to auto-update.
-
-If you'd like, a follow-up can:
-- Add per-script example screenshots or GIFs
-- Create a release / changelog entry for the youtube-music-no-bother.js 4.0.0 update
 
