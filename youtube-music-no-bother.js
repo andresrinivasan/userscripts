@@ -27,10 +27,6 @@
         const actionsBtn = document.querySelector('ytmusic-you-there-renderer div.actions button');
         if (actionsBtn) return actionsBtn;
 
-        // Try the exact popup path as a second attempt
-        const exact = document.querySelector('body > ytmusic-app > ytmusic-popup-container > tp-yt-paper-dialog > ytmusic-you-there-renderer > div > yt-button-renderer > yt-button-shape > button');
-        if (exact) return exact;
-
         // Fallback: look inside the renderer for likely buttons
         const root = document.querySelector('ytmusic-you-there-renderer');
         if (!root) return null;
