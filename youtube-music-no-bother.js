@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube Music - No Bother
-// @version      4.0.2
+// @version      4.0.3
 // @description  Forked from https://greasyfork.org/en/scripts/535841-youtube-music-i-m-still-here-listening. Automatically clicks "Are you still listening?" and dismisses upgrade/promo popups on YouTube Music.
 // @author       andresrinivasan
 // @author       kkrow
@@ -128,6 +128,10 @@
     document.addEventListener('visibilitychange', () => {
         stopPolling();
         startPolling();
-    });
+        if (!document.hidden) {
+            // YTM may have been waiting for foreground to resume — nudge it
+            clickButtons();
+        }
+});
 
 })();
