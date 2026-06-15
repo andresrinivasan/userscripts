@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube Music - No Bother
-// @version      4.0.3
+// @version      4.1.0
 // @description  Forked from https://greasyfork.org/en/scripts/535841-youtube-music-i-m-still-here-listening. Automatically clicks "Are you still listening?" and dismisses upgrade/promo popups on YouTube Music.
 // @author       andresrinivasan
 // @author       kkrow
@@ -18,9 +18,13 @@
 (function() {
     'use strict';
 
-    const SELECTORS = {
-        promoDismiss: 'ytmusic-mealbar-promo-renderer .dismiss-button, .yt-spec-button-shape-next--call-to-action-inverse'
-    };
+    // List of selectors for promo "no thanks" / "dismiss" buttons.
+    // The script will try these in order.
+    const PROMO_DISMISS_SELECTORS = [
+        'ytmusic-mealbar-promo-renderer .dismiss-button button', // New, more specific selector for certain popups
+        'ytmusic-mealbar-promo-renderer .dismiss-button',
+        '.yt-spec-button-shape-next--call-to-action-inverse'
+    ];
 
     function findStillHereButton() {
         // Prefer the direct actions button selector (matches observed DOM)
@@ -88,10 +92,12 @@
                 return true;
             }
 
-            const promoDismissBtn = document.querySelector(SELECTORS.promoDismiss);
-            if (promoDismissBtn) {
-                promoDismissBtn.click();
-                return true;
+            for (const selector of PROMO_DISMISS_SELECTORS) {
+                const promoDismissBtn = document.querySelector(selector);
+                if (promoDismissBtn) {
+                    promoDismissBtn.click();
+                    return true;
+                }
             }
         } catch (e) {
             // Swallow errors — some elements may be detached during navigation

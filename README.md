@@ -43,7 +43,7 @@ Scripts
 - youtube-music-no-bother.js (current stable)
   - Purpose: Auto-click "Are you still listening?" and dismiss upgrade/promo popups on YouTube Music.
   - Match: https://music.youtube.com/*
-  - Status: Active — includes MutationObserver (VM.observe) + polling fallback and a focus whitelist to avoid interfering with typing. Version: 4.0.0. Homepage URL set to this repo.
+  - Status: Active — includes MutationObserver (VM.observe) + polling fallback and a focus whitelist to avoid interfering with typing. Version: 4.1.0. Homepage URL set to this repo.
 
 Repository notes / conventions
 - Each script's metadata header is authoritative for install/update URLs, supported hosts (@match), and script version. Keep @downloadURL, @supportURL, and @homepageURL accurate when changing the repo location.
